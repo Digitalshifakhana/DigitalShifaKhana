@@ -4,152 +4,97 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ڈیجیٹل شفا خانہ</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
-:root {
-  --green: #1D9E75;
-  --green-dark: #085041;
-  --green-light: #E1F5EE;
-  --green-mid: #9FE1CB;
-  --red-light: #FCEBEB;
-  --red: #791F1F;
-  --blue-light: #E6F1FB;
-  --blue: #0C447C;
-  --purple-light: #EEEDFE;
-  --purple: #3C3489;
-  --orange-light: #FAEEDA;
-  --orange: #633806;
-  --pink-light: #FBEAF0;
-  --pink: #72243E;
-  --bg: #F5F7F6;
-  --card: #FFFFFF;
-  --border: #E2E8E6;
-  --text: #1A2420;
-  --text2: #5A7268;
-  --radius: 14px;
-  --shadow: 0 2px 12px rgba(29,158,117,0.08);
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Noto Nastaliq Urdu', serif; background: var(--bg); color: var(--text); direction: rtl; min-height: 100vh; }
-
-/* TOPBAR */
-.topbar { background: var(--green); padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50; box-shadow: 0 2px 8px rgba(29,158,117,0.3); }
-.topbar-title { color: #fff; font-size: 18px; font-weight: 700; }
-.topbar-sub { color: var(--green-mid); font-size: 12px; margin-top: 2px; }
-.topbar-icon { color: var(--green-mid); font-size: 24px; }
-
-/* PAGES */
-.page { display: none; padding-bottom: 80px; }
-.page.active { display: block; }
-
-/* HOME */
-.hero { background: linear-gradient(135deg, var(--green) 0%, #0F6E56 100%); padding: 24px 16px; text-align: center; }
-.hero h1 { color: #fff; font-size: 20px; font-weight: 700; }
-.hero p { color: var(--green-mid); font-size: 13px; margin-top: 6px; }
-.stats { display: flex; gap: 10px; padding: 14px 16px; }
-.stat { flex: 1; background: var(--card); border-radius: 12px; padding: 10px; text-align: center; box-shadow: var(--shadow); }
-.stat-num { font-size: 20px; font-weight: 700; color: var(--green); }
-.stat-label { font-size: 11px; color: var(--text2); margin-top: 2px; }
-.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0 16px 14px; }
-.gcard { background: var(--card); border-radius: var(--radius); padding: 16px 12px; text-align: center; cursor: pointer; box-shadow: var(--shadow); border: 1.5px solid transparent; transition: all 0.2s; }
-.gcard:active { transform: scale(0.97); border-color: var(--green); }
-.gcard i { font-size: 30px; display: block; margin-bottom: 8px; }
-.gcard-title { font-size: 13px; font-weight: 600; color: var(--text); }
-.gcard-sub { font-size: 11px; color: var(--text2); margin-top: 3px; }
-.emg { background: var(--red-light); border: 1px solid #F7C1C1; margin: 0 16px 14px; border-radius: var(--radius); padding: 12px 14px; }
-.emg-title { font-size: 12px; color: var(--red); font-weight: 600; margin-bottom: 8px; }
-.emg-nums { display: flex; gap: 8px; flex-wrap: wrap; }
-.echip { background: #fff; border: 1px solid #F7C1C1; border-radius: 20px; padding: 4px 12px; font-size: 11px; color: var(--red); cursor: pointer; text-decoration: none; }
-
-/* SEARCH & FILTER */
-.search-wrap { padding: 12px 16px; background: var(--card); border-bottom: 1px solid var(--border); }
-.search-input { width: 100%; padding: 10px 14px; border-radius: 20px; border: 1.5px solid var(--border); background: var(--bg); color: var(--text); font-size: 13px; font-family: inherit; }
-.search-input:focus { outline: none; border-color: var(--green); }
-.filter-wrap { padding: 10px 16px; display: flex; gap: 8px; overflow-x: auto; background: var(--card); border-bottom: 1px solid var(--border); }
-.filter-wrap::-webkit-scrollbar { display: none; }
-.fbtn { font-size: 12px; padding: 6px 14px; border-radius: 20px; border: 1.5px solid var(--border); background: transparent; color: var(--text2); cursor: pointer; white-space: nowrap; font-family: inherit; transition: all 0.2s; }
-.fbtn.active { background: var(--green); color: #fff; border-color: var(--green); }
-.count-label { padding: 8px 16px; font-size: 11px; color: var(--text2); }
-
-/* CARDS */
-.list { padding: 12px 16px; display: flex; flex-direction: column; gap: 10px; }
-.sec-label { font-size: 12px; color: var(--text2); font-weight: 600; padding: 8px 0 4px; border-bottom: 1px solid var(--border); margin-bottom: 4px; }
-.hcard { background: var(--card); border-radius: var(--radius); padding: 14px; box-shadow: var(--shadow); border: 1px solid var(--border); }
-.hcard-name { font-size: 14px; font-weight: 700; color: var(--text); }
-.hcard-area { font-size: 12px; color: var(--text2); margin-top: 3px; }
-.hcard-badges { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
-.bdg { font-size: 11px; padding: 3px 10px; border-radius: 20px; }
-.hcard-btns { display: flex; gap: 8px; margin-top: 10px; }
-.btn-call { flex: 1; background: var(--green); color: #fff; border: none; border-radius: 10px; padding: 9px; font-size: 12px; cursor: pointer; font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 5px; }
-.btn-book { flex: 1; background: transparent; color: var(--green); border: 1.5px solid var(--green); border-radius: 10px; padding: 9px; font-size: 12px; cursor: pointer; font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 5px; }
-.btn-call:active, .btn-book:active { opacity: 0.8; }
-
-/* INFO BAR */
-.info-bar { background: var(--green-light); border: 1px solid var(--green-mid); margin: 12px 16px; border-radius: var(--radius); padding: 12px 14px; }
-.info-bar-title { font-size: 12px; color: var(--green-dark); font-weight: 600; margin-bottom: 6px; }
-.info-chips { display: flex; gap: 6px; flex-wrap: wrap; }
-.info-chip { background: #fff; border: 1px solid var(--green-mid); border-radius: 20px; padding: 3px 12px; font-size: 11px; color: var(--green-dark); }
-
-/* AI CHAT */
-.chat-wrap { display: flex; flex-direction: column; height: calc(100vh - 130px); }
-.chat-messages { flex: 1; overflow-y: auto; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
-.chat-messages::-webkit-scrollbar { display: none; }
-.bubble { padding: 12px 14px; border-radius: 14px; font-size: 13px; max-width: 88%; line-height: 1.8; }
-.bubble.ai { background: var(--card); color: var(--text); align-self: flex-start; border-bottom-right-radius: 4px; box-shadow: var(--shadow); white-space: pre-wrap; border: 1px solid var(--border); }
-.bubble.user { background: var(--green); color: #fff; align-self: flex-end; border-bottom-left-radius: 4px; }
-.bubble.warn { background: var(--red-light); color: var(--red); align-self: flex-start; border: 1px solid #F7C1C1; white-space: pre-wrap; }
-.quick-btns { padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 6px; border-top: 1px solid var(--border); background: var(--card); }
-.qbtn { font-size: 12px; padding: 6px 12px; border-radius: 20px; border: 1.5px solid var(--green); color: var(--green); background: transparent; cursor: pointer; font-family: inherit; }
-.qbtn:active { background: var(--green-light); }
-.chat-input-wrap { padding: 10px 16px; display: flex; gap: 8px; align-items: center; background: var(--card); border-top: 1px solid var(--border); }
-.chat-input { flex: 1; padding: 10px 14px; border-radius: 20px; border: 1.5px solid var(--border); background: var(--bg); color: var(--text); font-size: 13px; font-family: inherit; }
-.chat-input:focus { outline: none; border-color: var(--green); }
-.send-btn { background: var(--green); border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; }
-.send-btn:disabled { background: var(--green-mid); }
-.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--text2); animation: bounce 1s infinite; }
-.dot:nth-child(2) { animation-delay: .2s; }
-.dot:nth-child(3) { animation-delay: .4s; }
-@keyframes bounce { 0%,60%,100% { transform: translateY(0); } 30% { transform: translateY(-5px); } }
-
-/* MODAL */
-.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; display: none; align-items: flex-end; justify-content: center; }
-.modal-overlay.open { display: flex; }
-.modal { background: var(--card); border-radius: 20px 20px 0 0; padding: 20px 16px; width: 100%; max-width: 480px; }
-.modal-title { font-size: 16px; font-weight: 700; color: var(--text); }
-.modal-hosp { font-size: 12px; color: var(--text2); margin-bottom: 16px; margin-top: 3px; }
-.modal-label { font-size: 12px; color: var(--text2); margin-bottom: 4px; }
-.modal-input { width: 100%; padding: 10px 14px; border-radius: 10px; border: 1.5px solid var(--border); background: var(--bg); color: var(--text); font-size: 13px; font-family: inherit; margin-bottom: 10px; }
-.modal-row { display: flex; gap: 10px; }
-.modal-select { flex: 1; padding: 10px 10px; border-radius: 10px; border: 1.5px solid var(--border); background: var(--bg); color: var(--text); font-size: 12px; font-family: inherit; margin-bottom: 10px; }
-.modal-confirm { width: 100%; padding: 13px; background: var(--green); color: #fff; border: none; border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; margin-top: 4px; }
-.modal-cancel { width: 100%; padding: 10px; background: transparent; color: var(--text2); border: none; font-size: 13px; cursor: pointer; font-family: inherit; margin-top: 6px; }
-
-/* NAV */
-.nav { position: fixed; bottom: 0; left: 0; right: 0; background: var(--card); border-top: 1px solid var(--border); display: flex; z-index: 40; box-shadow: 0 -2px 12px rgba(0,0,0,0.06); }
-.nav-item { flex: 1; padding: 10px 0 8px; text-align: center; cursor: pointer; }
-.nav-item i { font-size: 22px; color: var(--text2); display: block; }
-.nav-item span { font-size: 10px; color: var(--text2); }
-.nav-item.active i, .nav-item.active span { color: var(--green); }
+:root{--green:#1D9E75;--green-dark:#085041;--green-light:#E1F5EE;--green-mid:#9FE1CB;--red-light:#FCEBEB;--red:#791F1F;--blue-light:#E6F1FB;--blue:#0C447C;--purple-light:#EEEDFE;--purple:#3C3489;--orange-light:#FAEEDA;--orange:#633806;--pink-light:#FBEAF0;--pink:#72243E;--bg:#F5F7F6;--card:#FFFFFF;--border:#E2E8E6;--text:#1A2420;--text2:#5A7268;--radius:14px;--shadow:0 2px 12px rgba(29,158,117,0.08);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Nastaliq Urdu',serif;background:var(--bg);color:var(--text);direction:rtl;min-height:100vh;}
+.topbar{background:var(--green);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;box-shadow:0 2px 8px rgba(29,158,117,0.3);}
+.topbar-title{color:#fff;font-size:18px;font-weight:700;}
+.topbar-sub{color:var(--green-mid);font-size:12px;margin-top:2px;}
+.page{display:none;padding-bottom:80px;}.page.active{display:block;}
+.hero{background:linear-gradient(135deg,var(--green) 0%,#0F6E56 100%);padding:24px 16px;text-align:center;}
+.hero h1{color:#fff;font-size:20px;font-weight:700;}
+.hero p{color:var(--green-mid);font-size:13px;margin-top:6px;}
+.stats{display:flex;gap:10px;padding:14px 16px;}
+.stat{flex:1;background:var(--card);border-radius:12px;padding:10px;text-align:center;box-shadow:var(--shadow);}
+.stat-num{font-size:20px;font-weight:700;color:var(--green);}
+.stat-label{font-size:11px;color:var(--text2);margin-top:2px;}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:0 16px 14px;}
+.gcard{background:var(--card);border-radius:var(--radius);padding:16px 12px;text-align:center;cursor:pointer;box-shadow:var(--shadow);border:1.5px solid transparent;transition:all 0.2s;}
+.gcard:active{transform:scale(0.97);border-color:var(--green);}
+.gcard i{font-size:30px;display:block;margin-bottom:8px;}
+.gcard-title{font-size:13px;font-weight:600;color:var(--text);}
+.gcard-sub{font-size:11px;color:var(--text2);margin-top:3px;}
+.emg{background:var(--red-light);border:1px solid #F7C1C1;margin:0 16px 14px;border-radius:var(--radius);padding:12px 14px;}
+.emg-title{font-size:12px;color:var(--red);font-weight:600;margin-bottom:8px;}
+.emg-nums{display:flex;gap:8px;flex-wrap:wrap;}
+.echip{background:#fff;border:1px solid #F7C1C1;border-radius:20px;padding:4px 12px;font-size:11px;color:var(--red);cursor:pointer;text-decoration:none;}
+.search-wrap{padding:12px 16px;background:var(--card);border-bottom:1px solid var(--border);}
+.search-input{width:100%;padding:10px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);font-size:13px;font-family:inherit;}
+.search-input:focus{outline:none;border-color:var(--green);}
+.filter-wrap{padding:10px 16px;display:flex;gap:8px;overflow-x:auto;background:var(--card);border-bottom:1px solid var(--border);}
+.filter-wrap::-webkit-scrollbar{display:none;}
+.fbtn{font-size:12px;padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;white-space:nowrap;font-family:inherit;transition:all 0.2s;}
+.fbtn.active{background:var(--green);color:#fff;border-color:var(--green);}
+.count-label{padding:8px 16px;font-size:11px;color:var(--text2);}
+.list{padding:12px 16px;display:flex;flex-direction:column;gap:10px;}
+.sec-label{font-size:12px;color:var(--text2);font-weight:600;padding:8px 0 4px;border-bottom:1px solid var(--border);margin-bottom:4px;}
+.hcard{background:var(--card);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow);border:1px solid var(--border);}
+.hcard-name{font-size:14px;font-weight:700;color:var(--text);}
+.hcard-area{font-size:12px;color:var(--text2);margin-top:3px;}
+.hcard-badges{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;}
+.bdg{font-size:11px;padding:3px 10px;border-radius:20px;}
+.hcard-btns{display:flex;gap:8px;margin-top:10px;}
+.btn-call{flex:1;background:var(--green);color:#fff;border:none;border-radius:10px;padding:9px;font-size:12px;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:5px;text-decoration:none;}
+.btn-book{flex:1;background:transparent;color:var(--green);border:1.5px solid var(--green);border-radius:10px;padding:9px;font-size:12px;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:5px;}
+.info-bar{background:var(--green-light);border:1px solid var(--green-mid);margin:12px 16px;border-radius:var(--radius);padding:12px 14px;}
+.info-bar-title{font-size:12px;color:var(--green-dark);font-weight:600;margin-bottom:6px;}
+.info-chips{display:flex;gap:6px;flex-wrap:wrap;}
+.info-chip{background:#fff;border:1px solid var(--green-mid);border-radius:20px;padding:3px 12px;font-size:11px;color:var(--green-dark);}
+.chat-wrap{display:flex;flex-direction:column;height:calc(100vh - 130px);}
+.chat-messages{flex:1;overflow-y:auto;padding:14px 16px;display:flex;flex-direction:column;gap:10px;}
+.chat-messages::-webkit-scrollbar{display:none;}
+.bubble{padding:12px 14px;border-radius:14px;font-size:13px;max-width:88%;line-height:1.8;}
+.bubble.ai{background:var(--card);color:var(--text);align-self:flex-start;border-bottom-right-radius:4px;box-shadow:var(--shadow);white-space:pre-wrap;border:1px solid var(--border);}
+.bubble.user{background:var(--green);color:#fff;align-self:flex-end;border-bottom-left-radius:4px;}
+.quick-btns{padding:10px 16px;display:flex;flex-wrap:wrap;gap:6px;border-top:1px solid var(--border);background:var(--card);}
+.qbtn{font-size:12px;padding:6px 12px;border-radius:20px;border:1.5px solid var(--green);color:var(--green);background:transparent;cursor:pointer;font-family:inherit;}
+.chat-input-wrap{padding:10px 16px;display:flex;gap:8px;align-items:center;background:var(--card);border-top:1px solid var(--border);}
+.chat-input{flex:1;padding:10px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);font-size:13px;font-family:inherit;}
+.chat-input:focus{outline:none;border-color:var(--green);}
+.send-btn{background:var(--green);border:none;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;}
+.send-btn:disabled{background:var(--green-mid);}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--text2);animation:bounce 1s infinite;}
+.dot:nth-child(2){animation-delay:.2s;}.dot:nth-child(3){animation-delay:.4s;}
+@keyframes bounce{0%,60%,100%{transform:translateY(0);}30%{transform:translateY(-5px);}}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:100;display:none;align-items:flex-end;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--card);border-radius:20px 20px 0 0;padding:20px 16px;width:100%;max-width:480px;}
+.modal-title{font-size:16px;font-weight:700;color:var(--text);}
+.modal-hosp{font-size:12px;color:var(--text2);margin-bottom:16px;margin-top:3px;}
+.modal-label{font-size:12px;color:var(--text2);margin-bottom:4px;}
+.modal-input{width:100%;padding:10px 14px;border-radius:10px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);font-size:13px;font-family:inherit;margin-bottom:10px;}
+.modal-row{display:flex;gap:10px;}
+.modal-select{flex:1;padding:10px;border-radius:10px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);font-size:12px;font-family:inherit;margin-bottom:10px;}
+.modal-confirm{width:100%;padding:13px;background:var(--green);color:#fff;border:none;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;margin-top:4px;}
+.modal-cancel{width:100%;padding:10px;background:transparent;color:var(--text2);border:none;font-size:13px;cursor:pointer;font-family:inherit;margin-top:6px;}
+.nav{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--border);display:flex;z-index:40;box-shadow:0 -2px 12px rgba(0,0,0,0.06);}
+.nav-item{flex:1;padding:10px 0 8px;text-align:center;cursor:pointer;}
+.nav-item i{font-size:22px;color:var(--text2);display:block;}
+.nav-item span{font-size:10px;color:var(--text2);}
+.nav-item.active i,.nav-item.active span{color:var(--green);}
 </style>
 </head>
 <body>
-
 <div class="topbar">
-  <div>
-    <div class="topbar-title">ڈیجیٹل شفا خانہ</div>
-    <div class="topbar-sub" id="tsub">آپ کا ذاتی صحت مددگار</div>
-  </div>
-  <i class="ti ti-heart topbar-icon"></i>
+  <div><div class="topbar-title">ڈیجیٹل شفا خانہ</div><div class="topbar-sub" id="tsub">آپ کا ذاتی صحت مددگار</div></div>
+  <i class="ti ti-heart" style="color:var(--green-mid);font-size:24px"></i>
 </div>
 
-<!-- HOME -->
 <div id="page-home" class="page active">
-  <div class="hero">
-    <h1>آج آپ کا حال کیسا ہے؟ 😊</h1>
-    <p>اپنی تکلیف بتائیں — ہم دوست کی طرح مدد کریں گے</p>
-  </div>
+  <div class="hero"><h1>آج آپ کا حال کیسا ہے؟ 😊</h1><p>اپنی تکلیف بتائیں — ہم دوست کی طرح مدد کریں گے</p></div>
   <div class="stats">
     <div class="stat"><div class="stat-num">39+</div><div class="stat-label">ہسپتال</div></div>
     <div class="stat"><div class="stat-num">10+</div><div class="stat-label">لیبز</div></div>
@@ -163,18 +108,16 @@ body { font-family: 'Noto Nastaliq Urdu', serif; background: var(--bg); color: v
     <div class="gcard" onclick="showPage('stores')"><i class="ti ti-pill" style="color:#993556"></i><div class="gcard-title">میڈیکل اسٹور</div><div class="gcard-sub">دوائی خریدیں</div></div>
   </div>
   <div class="emg">
-    <div class="emg-title">🚨 ایمرجنسی نمبر — ابھی کال کریں</div>
+    <div class="emg-title">🚨 ایمرجنسی نمبر</div>
     <div class="emg-nums">
       <a href="tel:1020" class="echip">Chippa 1020</a>
       <a href="tel:115" class="echip">Edhi 115</a>
       <a href="tel:115" class="echip">Aman 115</a>
       <a href="tel:1122" class="echip">Rescue 1122</a>
-      <a href="tel:15" class="echip">Police 15</a>
     </div>
   </div>
 </div>
 
-<!-- HOSPITALS -->
 <div id="page-hospitals" class="page">
   <div class="search-wrap"><input class="search-input" id="h-search" placeholder="ہسپتال تلاش کریں..." oninput="filterH()"/></div>
   <div class="filter-wrap">
@@ -182,7 +125,7 @@ body { font-family: 'Noto Nastaliq Urdu', serif; background: var(--bg); color: v
     <button class="fbtn" onclick="fH('private',this)">پرائیویٹ</button>
     <button class="fbtn" onclick="fH('govt',this)">سرکاری</button>
     <button class="fbtn" onclick="fH('heart',this)">دل ❤️</button>
-    <button class="fbtn" onclick="fH('eye',this)">آنکھ 👁</button>
+    <button class="fbtn" onclick="fH('eye',this)">آنکھ</button>
     <button class="fbtn" onclick="fH('kidney',this)">گردہ</button>
     <button class="fbtn" onclick="fH('dental',this)">دانت 🦷</button>
     <button class="fbtn" onclick="fH('child',this)">بچے 👶</button>
@@ -193,7 +136,6 @@ body { font-family: 'Noto Nastaliq Urdu', serif; background: var(--bg); color: v
   <div class="list" id="h-list"></div>
 </div>
 
-<!-- LABS -->
 <div id="page-labs" class="page">
   <div class="info-bar">
     <div class="info-bar-title">🏠 گھر سے سیمپل کلیکشن دستیاب</div>
@@ -206,7 +148,6 @@ body { font-family: 'Noto Nastaliq Urdu', serif; background: var(--bg); color: v
   <div class="list" id="l-list"></div>
 </div>
 
-<!-- STORES -->
 <div id="page-stores" class="page">
   <div class="filter-wrap">
     <button class="fbtn active" onclick="fS('all',this)">سب</button>
@@ -216,7 +157,6 @@ body { font-family: 'Noto Nastaliq Urdu', serif; background: var(--bg); color: v
   <div class="list" id="s-list"></div>
 </div>
 
-<!-- AI CHAT -->
 <div id="page-ai" class="page">
   <div class="chat-wrap">
     <div class="chat-messages" id="chat"></div>
@@ -230,7 +170,7 @@ body { font-family: 'Noto Nastaliq Urdu', serif; background: var(--bg); color: v
     </div>
     <div class="chat-input-wrap">
       <button class="send-btn" id="sbtn" onclick="sendMsg()"><i class="ti ti-send" style="color:#fff;font-size:18px"></i></button>
-      <input class="chat-input" id="ai-inp" placeholder="کچھ بھی پوچھیں — اردو یا انگریزی..." onkeydown="if(event.key==='Enter')sendMsg()"/>
+      <input class="chat-input" id="ai-inp" placeholder="کچھ بھی پوچھیں..." onkeydown="if(event.key==='Enter')sendMsg()"/>
     </div>
   </div>
 </div>
@@ -243,7 +183,6 @@ body { font-family: 'Noto Nastaliq Urdu', serif; background: var(--bg); color: v
   <div class="nav-item" id="nav-ai" onclick="showPage('ai')"><i class="ti ti-robot"></i><span>AI</span></div>
 </nav>
 
-<!-- BOOKING MODAL -->
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-title">اپوائنٹمنٹ بک کریں</div>
@@ -270,6 +209,9 @@ body { font-family: 'Noto Nastaliq Urdu', serif; background: var(--bg); color: v
 </div>
 
 <script>
+// *** APNI GROQ API KEY YAHAN DAALO ***
+const GROQ_API_KEY = "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";
+
 const hospitals=[
   {name:'آغا خان یونیورسٹی ہسپتال',area:'اسٹیڈیم روڈ',num:'021-111-911-911',cat:'private',type:'پرائیویٹ',h24:true},
   {name:'لیاقت نیشنل ہسپتال',area:'اسٹیڈیم روڈ',num:'021-111-456-456',cat:'private',type:'پرائیویٹ',h24:true},
@@ -313,7 +255,7 @@ const labs=[
   {name:'ڈاکٹر عیسیٰ کورنگی',area:'کورنگی',num:'021-38140600',home:true},
 ];
 const stores=[
-  {name:'DVAGO فارمیسی',area:'نارتھ ناظم آباد / اسٹیڈیم روڈ',num:'021-111-138-246',h24:true,delivery:true},
+  {name:'DVAGO فارمیسی',area:'نارتھ ناظم آباد',num:'021-111-138-246',h24:true,delivery:true},
   {name:'کوثر میڈیکوس',area:'LuckyOne مال',num:'0308-8875999',h24:false,delivery:true},
   {name:'داوا ہیلتھ کیئر',area:'گلشن / FB ایریا',num:'033-111-132-92',h24:false,delivery:true},
   {name:'ناہید فارمیسی',area:'بہادر آباد',num:'021-111-624-333',h24:false,delivery:true},
@@ -321,12 +263,11 @@ const stores=[
   {name:'پٹیل ہسپتال فارمیسی',area:'گلشن اقبال',num:'021-111-174-174',h24:true,delivery:false},
   {name:'ٹائم میڈیکل',area:'سولجر بازار',num:'0324-2647046',h24:true,delivery:false},
   {name:'الخدمت فارمیسی',area:'کراچی',num:'0311-1100744',h24:false,delivery:false},
-  {name:'ناہید فارمیسی',area:'بہادر آباد',num:'021-111-624-333',h24:false,delivery:true},
 ];
 
 const catColors={'پرائیویٹ':'background:var(--green-light);color:var(--green-dark)','سرکاری':'background:var(--blue-light);color:var(--blue)','دل':'background:var(--red-light);color:var(--red)','آنکھ':'background:var(--orange-light);color:var(--orange)','گردہ':'background:var(--purple-light);color:var(--purple)','دانت':'background:var(--pink-light);color:var(--pink)','بچے':'background:var(--blue-light);color:var(--blue)','گائنی':'background:var(--pink-light);color:var(--pink)','کینسر':'background:#F0F0F0;color:#333'};
 const subs={home:'آپ کا ذاتی صحت مددگار',hospitals:'کراچی کے ہسپتال',labs:'لیب اور بلڈ ٹیسٹ',stores:'میڈیکل اسٹور',ai:'AI صحت مددگار'};
-let hCat='all',sCat='all',currentBooking={};
+let hCat='all',currentBooking={};
 
 function showPage(n){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -338,7 +279,7 @@ function showPage(n){
   if(n==='labs') renderL(labs);
   if(n==='stores') renderS(stores);
   if(n==='ai'&&!document.getElementById('chat').children.length)
-    addBubble('ai','السلام علیکم! 😊\n\nمیں آپ کا دوست ہوں — ڈیجیٹل شفا خانہ سے۔\nکچھ بھی بتائیں — تکلیف، دوائی، ہسپتال — میں مدد کروں گا!');
+    addBubble('ai','السلام علیکم! 😊\n\nمیں آپ کا دوست ہوں — ڈیجیٹل شفا خانہ سے۔\nکچھ بھی بتائیں — تکلیف، دوائی، ہسپتال!');
 }
 
 function renderH(list){
@@ -352,34 +293,18 @@ function renderH(list){
       const tc=catColors[h.type]||'background:var(--green-light);color:var(--green-dark)';
       let b=`<span class="bdg" style="${tc}">${h.type}</span>`;
       if(h.h24) b+=`<span class="bdg" style="background:var(--red-light);color:var(--red)">24/7</span>`;
-      html+=`<div class="hcard">
-        <div class="hcard-name">${h.name}</div>
-        <div class="hcard-area">📍 ${h.area}</div>
-        <div class="hcard-badges">${b}</div>
-        <div class="hcard-btns">
-          <a href="tel:${h.num}" class="btn-call"><i class="ti ti-phone" style="font-size:14px"></i> ${h.num}</a>
-          <button class="btn-book" onclick="openModal('${h.name}','${h.area}')"><i class="ti ti-calendar" style="font-size:14px"></i> بک کریں</button>
-        </div>
-      </div>`;
+      html+=`<div class="hcard"><div class="hcard-name">${h.name}</div><div class="hcard-area">📍 ${h.area}</div><div class="hcard-badges">${b}</div><div class="hcard-btns"><a href="tel:${h.num}" class="btn-call"><i class="ti ti-phone" style="font-size:14px"></i> ${h.num}</a><button class="btn-book" onclick="openModal('${h.name}','${h.area}')"><i class="ti ti-calendar" style="font-size:14px"></i> بک کریں</button></div></div>`;
     });
   });
   document.getElementById('h-list').innerHTML=html;
-  document.getElementById('h-count').textContent=`${list.length} ہسپتال دکھائے جا رہے ہیں`;
+  document.getElementById('h-count').textContent=`${list.length} ہسپتال`;
 }
 
 function renderL(list){
   let html='<div class="sec-label">تمام لیبز</div>';
   list.forEach(l=>{
     let b=l.home?`<span class="bdg" style="background:var(--green-light);color:var(--green-dark)">ہوم سیمپل ✓</span>`:'';
-    html+=`<div class="hcard">
-      <div class="hcard-name">${l.name}</div>
-      <div class="hcard-area">📍 ${l.area}</div>
-      <div class="hcard-badges">${b}</div>
-      <div class="hcard-btns">
-        <a href="tel:${l.num}" class="btn-call"><i class="ti ti-phone" style="font-size:14px"></i> ${l.num}</a>
-        <button class="btn-book" onclick="openModal('${l.name}','${l.area}')"><i class="ti ti-calendar" style="font-size:14px"></i> بک کریں</button>
-      </div>
-    </div>`;
+    html+=`<div class="hcard"><div class="hcard-name">${l.name}</div><div class="hcard-area">📍 ${l.area}</div><div class="hcard-badges">${b}</div><div class="hcard-btns"><a href="tel:${l.num}" class="btn-call"><i class="ti ti-phone" style="font-size:14px"></i> ${l.num}</a><button class="btn-book" onclick="openModal('${l.name}','${l.area}')"><i class="ti ti-calendar" style="font-size:14px"></i> بک کریں</button></div></div>`;
   });
   document.getElementById('l-list').innerHTML=html;
 }
@@ -390,21 +315,14 @@ function renderS(list){
     let b='';
     if(s.h24) b+=`<span class="bdg" style="background:var(--red-light);color:var(--red)">24 گھنٹے</span>`;
     if(s.delivery) b+=`<span class="bdg" style="background:var(--purple-light);color:var(--purple)">ہوم ڈلیوری</span>`;
-    html+=`<div class="hcard">
-      <div class="hcard-name">${s.name}</div>
-      <div class="hcard-area">📍 ${s.area}</div>
-      <div class="hcard-badges">${b}</div>
-      <div class="hcard-btns">
-        <a href="tel:${s.num}" class="btn-call"><i class="ti ti-phone" style="font-size:14px"></i> ${s.num}</a>
-      </div>
-    </div>`;
+    html+=`<div class="hcard"><div class="hcard-name">${s.name}</div><div class="hcard-area">📍 ${s.area}</div><div class="hcard-badges">${b}</div><div class="hcard-btns"><a href="tel:${s.num}" class="btn-call"><i class="ti ti-phone" style="font-size:14px"></i> ${s.num}</a></div></div>`;
   });
   document.getElementById('s-list').innerHTML=html;
 }
 
 function fH(cat,btn){hCat=cat;document.querySelectorAll('#page-hospitals .fbtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');filterH();}
-function filterH(){const q=document.getElementById('h-search').value.trim();let list=hCat==='all'?hospitals:hospitals.filter(h=>h.cat===hCat);if(q)list=list.filter(h=>h.name.includes(q)||h.area.includes(q)||h.num.includes(q));renderH(list);}
-function fS(cat,btn){sCat=cat;document.querySelectorAll('#page-stores .fbtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');let list=cat==='all'?stores:cat==='h24'?stores.filter(s=>s.h24):stores.filter(s=>s.delivery);renderS(list);}
+function filterH(){const q=document.getElementById('h-search').value.trim();let list=hCat==='all'?hospitals:hospitals.filter(h=>h.cat===hCat);if(q)list=list.filter(h=>h.name.includes(q)||h.area.includes(q));renderH(list);}
+function fS(cat,btn){document.querySelectorAll('#page-stores .fbtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');let list=cat==='all'?stores:cat==='h24'?stores.filter(s=>s.h24):stores.filter(s=>s.delivery);renderS(list);}
 
 function openModal(name,area){
   currentBooking={name,area};
@@ -422,9 +340,7 @@ function confirmBooking(){
   if(!name||!phone){alert('براہ کرم نام اور فون نمبر لکھیں');return;}
   document.getElementById('modal').classList.remove('open');
   showPage('ai');
-  setTimeout(()=>{
-    addBubble('ai',`بہت اچھا ${name}! 😊\n\nآپ کی اپوائنٹمنٹ بک ہو گئی:\n🏥 ${currentBooking.name}\n📍 ${currentBooking.area}\n📅 ${date} — ${time}\n🩺 مسئلہ: ${prob||'نہیں بتایا'}\n📞 ${phone}\n\nیاد دہانی: وقت سے 15 منٹ پہلے پہنچیں۔\nکوئی اور مدد چاہیے؟ 😊`);
-  },400);
+  setTimeout(()=>{addBubble('ai',`بہت اچھا ${name}! 😊\n\nاپوائنٹمنٹ بک ہو گئی:\n🏥 ${currentBooking.name}\n📍 ${currentBooking.area}\n📅 ${date} — ${time}\n🩺 ${prob||'نہیں بتایا'}\n\nوقت سے 15 منٹ پہلے پہنچیں! 😊`);},400);
 }
 
 function addBubble(type,text){
@@ -452,23 +368,20 @@ async function sendMsg(){
   document.getElementById('chat').appendChild(t);
   document.getElementById('chat').scrollTop=99999;
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
+    const res=await fetch('https://api.groq.com/openai/v1/chat/completions',{
       method:'POST',
-      headers:{'Content-Type':'application/json'},
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+GROQ_API_KEY},
       body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:800,
-        system:`آپ ڈیجیٹل شفا خانہ کے AI مددگار ہیں۔ دوست کی طرح گرمجوشی سے بات کریں۔
-ہمیشہ اردو میں جواب دیں۔ مختصر اور مددگار جواب دیں۔
-تکلیف پر: وجہ بتائیں، گھر پر کیا کریں، کب ڈاکٹر کے پاس جائیں۔
-دوائی: DVAGO 021-111-138-246، کوثر 0308-8875999 ہوم ڈلیوری دیتے ہیں۔
-ہسپتال: ہسپتال والے سیکشن میں جائیں — بک کریں بٹن موجود ہے۔
-لیب: Chughtai 03-111-456-789، Dr Essa 021-111-786-986 ہوم سیمپل لیتے ہیں۔`,
-        messages:[{role:'user',content:text}]
+        model:'llama3-8b-8192',
+        messages:[
+          {role:'system',content:'آپ ڈیجیٹل شفا خانہ کے AI مددگار ہیں۔ دوست کی طرح اردو میں بات کریں۔ تکلیف پر: وجہ بتائیں، گھر پر کیا کریں، کب ڈاکٹر کے پاس جائیں۔ دوائی: DVAGO 021-111-138-246۔ ہسپتال سیکشن میں جانے کو کہیں۔ مختصر جواب دیں۔'},
+          {role:'user',content:text}
+        ],
+        max_tokens:500
       })
     });
     const data=await res.json();
-    const reply=data.content?.map(i=>i.text||'').join('')||'معذرت، دوبارہ کوشش کریں۔';
+    const reply=data.choices?.[0]?.message?.content||'معذرت، دوبارہ کوشش کریں۔';
     t.remove();
     addBubble('ai',reply);
   }catch(e){
@@ -476,10 +389,8 @@ async function sendMsg(){
     addBubble('ai','معذرت، ابھی جواب نہیں مل سکا۔ دوبارہ کوشش کریں۔');
   }
   btn.disabled=false;
-  document.getElementById('chat').scrollTop=99999;
 }
 
-// Init
 renderH(hospitals);
 </script>
 </body>
